@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&family=Quattrocento:wght@400;700&family=Satisfy&display=swap");
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-roboto-condensed);
+  background-color: var(--beige);
+  color: var(--gray-dark);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}

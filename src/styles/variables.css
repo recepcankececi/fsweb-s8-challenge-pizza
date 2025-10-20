@@ -1,0 +1,14 @@
+:root {
+    /* Renkler */
+    --red: #ce2829;
+    --yellow: #fdc913;
+    --gray-light: #5f5f5f;
+    --gray-dark: #292929;
+    --beige: #faf7f2;
+
+    /* Fontlar */
+    --font-barlow: "Barlow", sans-serif;
+    --font-roboto-condensed: "Roboto Condensed", sans-serif;
+    --font-satisfy: "Satisfy", cursive;
+    --font-quattrocento: "Quattrocento", serif;
+}
