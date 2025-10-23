@@ -14,8 +14,6 @@ describe('Pizza Formu', () => {
     cy.get('@name').type('Ali');
     cy.get('@name').should('have.value', 'Ali');
 
-    // İsteğe bağlı: hata yıldızı kayboldu mu (varsa)
-    // cy.get('[data-cy="label-name"] .error-star').should('not.exist');
   });
 
   it('birden fazla malzeme seçilebilir', () => {
@@ -25,9 +23,6 @@ describe('Pizza Formu', () => {
     extras.forEach((e) => {
       cy.get(`[data-cy="extra-${e}"]`).check().should('be.checked');
     });
-
-    // 5’inciyi da seçip seçilebildiğini doğrulamak istersen:
-    // cy.get('[data-cy="extra-Soğan"]').check().should('be.checked');
 
     // Toplam seçili sayısını kontrol (checkbox container’ında):
     cy.get('[data-cy="checkbox-extras"] input[type="checkbox"]:checked')
@@ -62,7 +57,5 @@ describe('Pizza Formu', () => {
 
     // Konsola payload basıldı mı?
     cy.get('@consoleLog').should('be.called');
-    // İstersen argüman yapısını da doğrula:
-    // cy.get('@consoleLog').should('be.calledWithMatch', Cypress.sinon.match.has('isim', 'Ayşe'));
   });
 });

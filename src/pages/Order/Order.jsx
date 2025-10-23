@@ -1,5 +1,6 @@
 import styles from "./Order.module.css";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import RadioGroup from "../../components/RadioGroup";
 import CheckboxGroup from "../../components/CheckboxGroup";
 import SelectDropdown from "../../components/SelectDropdown";
@@ -20,6 +21,8 @@ export default function Order() {
     hamur: false,
     malzemeler: true,
   });
+
+  const history = useHistory();
 
   // --- HANDLERS ---
   function handleNameChange(value) {
@@ -81,6 +84,7 @@ export default function Order() {
       hamur: false,
       malzemeler: true,
     });
+    history.push("/success");
   }
 
   return (
