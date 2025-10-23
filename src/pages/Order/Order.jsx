@@ -9,6 +9,8 @@ export default function Order() {
   const [size, setSize] = React.useState("Orta");
   const [name, setName] = React.useState("");
   const [dough, setDough] = React.useState("İnce");
+  const [extras, setExtras] = React.useState([]);
+  const [note, setNote] = React.useState("");
   
   return (
     <section className={styles.orderPage}>
@@ -52,7 +54,24 @@ export default function Order() {
             />
           </div>
         </div>
-        
+        <div >
+          <CheckboxGroup
+            label="Ek Malzemeler"
+            options={["Pepperoni", "Sosis", "Kanada Jambonu", "Tavuk Izgara", "Soğan", "Domates", "Mısır", 
+              "Sucuk", "Jalepeno", "Sarımsak", "Biber", "Sucuk", "Ananas", "Kabak"]}
+            selected={extras}
+            onChange={setExtras}
+          />
+        </div>
+        <div style={{marginTop:"2rem"}}>
+          <TextArea
+            style={{}} 
+            label="Sipariş Notu" 
+            placeholder="Siparişine eklemek istediğin bir not var mı?" 
+            value={note} 
+            onChange={setNote}
+          />
+        </div>
       </form>
     </section>
   );
