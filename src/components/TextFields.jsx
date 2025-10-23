@@ -1,6 +1,6 @@
 export function TextInput({ label, value, onChange, placeholder }) {
   return (
-    <label style={{ display: "flex", gap: "8px", marginTop: "1rem", alignItems: "center", fontFamily:"var(--font-barlow)", fontWeight:"600" }}>
+    <label style={{ display: "flex", gap: "8px", marginTop: "2rem", alignItems: "center", fontFamily:"var(--font-barlow)", fontWeight:"600" }}>
       {label}
       <input
         type="text"

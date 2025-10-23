@@ -27,7 +27,7 @@ export default function RadioGroup({ label, options, name, value, onChange }) {
             name={name}
             value={opt}
             checked={value === opt}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={() => onChange(opt)}
           />
           {opt}
         </label>
