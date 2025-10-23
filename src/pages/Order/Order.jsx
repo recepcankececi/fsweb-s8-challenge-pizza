@@ -130,9 +130,9 @@ export default function Order() {
             value={formData.isim}
             onChange={handleNameChange}
             placeholder="Adınızı girin"
-          />
+          ></TextInput>
           {errors.isim && (
-                <span style={{ color: "red", marginLeft: "4px", textAlign:"center", marginTop: "2rem", marginLeft:"1rem", fontSize:"0.8rem"}}>
+                <span style={{ color: "red", textAlign:"center", marginTop: "2rem", marginLeft:"1rem", fontSize:"0.8rem"}}>
                   *En az 3 karakter girin
                 </span>
               )}
@@ -199,7 +199,7 @@ export default function Order() {
             <>
               Ek Malzemeler
               {errors.malzemeler && (
-                <span style={{ color: "red", marginLeft: "4px", fontSize:"0.8rem", marginLeft:"1rem" }}>*En az 4 ürün seçin</span>
+                <span style={{ color: "red", fontSize:"0.8rem", marginLeft:"1rem" }}>*En az 4 ürün seçin</span>
               )}
             </>
           }
@@ -232,6 +232,7 @@ export default function Order() {
         </div>
 
         <button
+          data-cy="submit-order"
           type="submit"
           disabled={formInvalid}
           style={{

@@ -17,6 +17,7 @@ export default function CheckboxGroup({ label, options, selected = [], onChange 
 
   return (
     <div
+      data-cy="checkbox-extras"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -75,6 +76,7 @@ export default function CheckboxGroup({ label, options, selected = [], onChange 
             }}
           >
             <input
+              data-cy={`extra-${opt.replace(/\s+/g, "-")}`}
               type="checkbox"
               checked={selected.includes(opt)}
               onChange={() => toggle(opt)}

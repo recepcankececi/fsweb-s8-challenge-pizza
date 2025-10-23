@@ -1,6 +1,6 @@
 export default function RadioGroup({ label, options, name, value, onChange }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+    <div data-cy="radio-size" style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
       <span
         style={{
           fontFamily: "var(--font-barlow)",

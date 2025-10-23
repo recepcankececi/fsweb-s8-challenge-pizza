@@ -1,8 +1,11 @@
 export function TextInput({ label, value, onChange, placeholder }) {
   return (
-    <label style={{ display: "flex", gap: "8px", marginTop: "2rem", alignItems: "center", fontFamily:"var(--font-barlow)", fontWeight:"600" }}>
+    <label style={{ display: "flex", gap: "8px", marginTop: "2rem", alignItems: "center", fontFamily:"var(--font-barlow)", fontWeight:"600" }}
+      htmlFor="input-name">
       {label}
       <input
+        id="input-name"
+        data-cy="input-name"
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -15,9 +18,12 @@ export function TextInput({ label, value, onChange, placeholder }) {
 
 export function TextArea({ label, value, onChange, placeholder }) {
   return (
-    <label style={{ display: "flex", flexDirection: "column", gap: "4px", fontFamily:"var(--font-barlow)", fontWeight:"600", fontSize:"1.4rem" }}>
+    <label style={{ display: "flex", flexDirection: "column", gap: "4px", fontFamily:"var(--font-barlow)", fontWeight:"600", fontSize:"1.4rem" }}
+      htmlFor="textarea-note">
       {label}
       <textarea 
+        id="textarea-note"
+        data-cy="textarea-note"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}

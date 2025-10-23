@@ -14,6 +14,7 @@ export default function SelectDropdown({ label, options, value, onChange }) {
       )}
 
       <select
+        data-cy="select-dough"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         style={{
