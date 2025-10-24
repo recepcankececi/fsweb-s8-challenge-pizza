@@ -14,16 +14,19 @@
 
 .menu ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 0;
   padding: 0;
+  gap : 1rem;
 }
 
 .menu li {
   flex: 1;
   text-align: center;
   list-style: none;
+  white-space: nowrap;
 }
 
 .menu a {

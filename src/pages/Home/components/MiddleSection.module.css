@@ -88,3 +88,35 @@
   margin-top: .2rem;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 860px) {
+  .wrapper {
+    flex-direction: column;       /* alt alta gelir */
+    align-items: center;
+  }
+
+  .big {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 531 / 448;
+  }
+
+  .column {
+    width: 100%;
+    height: auto;
+  }
+
+  .small1,
+  .small2 {
+    flex: unset;
+    aspect-ratio: 530 / 220;
+  }
+
+  .head {
+    font-size: 1.1rem;
+  }
+
+  .sub {
+    font-size: 1rem;
+  }
+}
