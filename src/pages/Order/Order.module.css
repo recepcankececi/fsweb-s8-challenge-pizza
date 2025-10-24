@@ -5,27 +5,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 0rem 1rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 2rem;
+  width: 100vw;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  background-color: var(--red);
 }
 
 .title {
   font-family: var(--font-barlow);
   font-weight: 700;
   font-size: 1.8rem;
-  color: var(--red);
-  margin-bottom: 0.5rem;
+  color: var(--beige);
+  margin-bottom: 1.5rem;
 }
 
 .subtitle {
   font-family: var(--font-roboto-condensed);
   font-weight: 400;
   font-size: 0.9rem;
-  color: var(--gray-light);
+  color: var(--beige);
+  margin-bottom: -1rem;
 }
 
 .form {
@@ -41,4 +45,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.homeLink {
+  color: var(--beige);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.homeLink:hover {
+  opacity: 0.8;
 }

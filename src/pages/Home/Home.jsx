@@ -1,14 +1,7 @@
 import styles from "./Home.module.css";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-
-  const history = useHistory();
-
-  function handleClick() {
-    history.push("/order");
-  }
-
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
@@ -16,7 +9,10 @@ export default function Home() {
         <h1 className={styles.title}>
           KOD ACIKTIRIR<br />PİZZA, DOYURUR
         </h1>
-        <button onClick={handleClick} className={styles.button}>ACIKTIM</button>
+
+        <Link to="/order" className={styles.button}>
+          ACIKTIM
+        </Link>
       </div>
     </section>
   );

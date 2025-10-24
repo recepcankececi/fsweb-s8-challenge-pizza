@@ -1,6 +1,7 @@
 import styles from "./Order.module.css";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import axios from "axios";
 import RadioGroup from "../../components/RadioGroup";
 import CheckboxGroup from "../../components/CheckboxGroup";
 import SelectDropdown from "../../components/SelectDropdown";
@@ -21,6 +22,8 @@ export default function Order() {
     hamur: false,
     malzemeler: true,
   });
+
+  const [errorMsg, setErrorMsg] = useState("");
 
   const history = useHistory();
 
@@ -67,31 +70,52 @@ export default function Order() {
     formData.malzemeler.length > 10;
 
   // --- SUBMIT ---
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (formInvalid) return;
-    console.log("Form payload:", formData);
-    setFormData({
-      isim: "",
-      boyut: "Orta",
-      hamur: "İnce",
-      malzemeler: [],
-      not: "",
-    });
-    setErrors({
-      isim: true,
-      boyut: false,
-      hamur: false,
-      malzemeler: true,
-    });
-    history.push("/success");
+
+    try {
+      const response = await axios.post("https://reqres.in/api/pizza", formData, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "reqres-free-v1",
+        },
+        timeout: 8000,
+        validateStatus: (status) => status >= 200 && status < 500,
+      });
+
+      if (response.status === 201 || response.status === 200) {
+        console.log("Sipariş başarıyla oluşturuldu:", response.data);
+        history.push("/success", response.data);
+      } else if (response.status === 400) {
+        setErrorMsg("Eksik ya da hatalı form bilgisi gönderdiniz.");
+      } else if (response.status === 401) {
+        setErrorMsg("Yetkisiz işlem. Lütfen tekrar giriş yapın.");
+      } else if (response.status === 500) {
+        setErrorMsg("Sunucu hatası. Lütfen daha sonra tekrar deneyin.");
+      } else {
+        setErrorMsg(`Bilinmeyen hata: ${response.status}`);
+      }
+    } catch (err) {
+      if (err.code === "ECONNABORTED") {
+        setErrorMsg("Sunucu yanıt vermedi. Lütfen bağlantınızı kontrol edin.");
+      } else if (err.response) {
+        setErrorMsg(`Sunucu hatası: ${err.response.statusText}`);
+      } else {
+        setErrorMsg("Bir ağ hatası oluştu. Lütfen tekrar deneyin.");
+      }
+
+      console.error("Axios hata detayı:", err);
+    }
   }
 
   return (
     <section className={styles.orderPage}>
       <header className={styles.header}>
         <h1 className={styles.title}>Teknolojik Yemekler</h1>
-        <p className={styles.subtitle}>Anasayfa &gt; Sipariş Oluştur</p>
+        <p className={styles.subtitle}>
+        <Link to="/" className={styles.homeLink}>Anasayfa</Link> &gt; Sipariş Oluştur
+        </p>
       </header>
 
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -234,7 +258,7 @@ export default function Order() {
             onChange={handleNoteChange}
           />
         </div>
-
+        {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
         <button
           data-cy="submit-order"
           type="submit"
