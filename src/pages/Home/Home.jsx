@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className={styles.title}>
             KOD ACIKTIRIR<br />PİZZA, DOYURUR
           </h1>
-          <Link to="/order" className={styles.button}>
+          <Link to="/order" className={styles.button} data-cy="home-aciktim">
             ACIKTIM
           </Link>
         </div>
