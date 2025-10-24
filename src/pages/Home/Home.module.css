@@ -12,6 +12,20 @@
   overflow: hidden;
 }
 
+.mainContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+}
+
+.mainContent > * {
+  width: 70%;
+  max-width: var(--container);
+}
+
+
 /* içerik kutusu */
 .content {
   margin-top: 10vh;

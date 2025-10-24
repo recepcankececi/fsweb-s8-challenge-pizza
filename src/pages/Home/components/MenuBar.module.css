@@ -1,0 +1,44 @@
+.menuBar {
+  width: 70%;
+  background-color: var(--text);
+  padding: 2rem 0;
+}
+
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.menu { width: 100%; }
+
+.menu ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  flex: 1;
+  text-align: center;
+  list-style: none;
+}
+
+.menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+  color: var(--dark);
+  font-family: var(--font-barlow);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.menu a img {
+  width: 2rem;
+  height: 2rem;
+}
